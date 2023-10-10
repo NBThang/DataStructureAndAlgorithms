@@ -55,7 +55,7 @@ public class TestFraction {
             sum = sum.add(temp);
         }
 
-        System.out.print("sum of fractions is: " + sum.normalize().toString());
+        System.out.print("sum of fractions is: " + sum.toString());
     }
 
     public static void minusFraction(List<Fraction> listFraction) {
@@ -64,7 +64,7 @@ public class TestFraction {
             resuil = resuil.minus(temp);
         }
 
-        System.out.print("minus of fractions is: " + resuil.normalize().toString());
+        System.out.print("minus of fractions is: " + resuil.toString());
     }
 
     public static void multiFraction(List<Fraction> listFraction) {
@@ -73,7 +73,7 @@ public class TestFraction {
             resuil = resuil.multi(temp);
         }
 
-        System.out.print("multi of fractions is: " + resuil.normalize().toString());
+        System.out.print("multi of fractions is: " + resuil.toString());
     }
 
     public static void diviFraction(List<Fraction> listFraction) {
@@ -82,6 +82,10 @@ public class TestFraction {
             resuil = resuil.divi(temp);
         }
 
-        System.out.print("divi of fractions is: " + resuil.normalize().toString());
+        System.out.print("divi of fractions is: " + resuil.toString());
+    }
+
+    private static boolean isInteger(float number) {
+        return (number == (int) number);
     }
 }

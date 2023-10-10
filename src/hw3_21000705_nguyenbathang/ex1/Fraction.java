@@ -15,7 +15,7 @@ public class Fraction {
 
         Fraction resuilFraction =  new Fraction(resuilNumerator, resuilDenominator);
 
-        return resuilFraction.normalize();
+        return normalize(resuilFraction);
     }
 
     public Fraction minus(Fraction c) {
@@ -39,28 +39,28 @@ public class Fraction {
         return new Fraction(resuilNumerator, resuilDenimiator);
     }
 
-    public Fraction normalize() {
-//        float gcd = GCD(Math.abs(numerator), Math.abs(denominator));
-//        float resultNumerator = numerator / gcd;
-//        float resultDenominator = denominator / gcd;
-//        return new Fraction(resultNumerator, resultDenominator);
-        float resuilNumerator = numerator;
-        float  resultDenominator = denominator;
-        while (isInteger(numerator) || isInteger(denominator)) {
+    public Fraction normalize(Fraction c) {
+        float resuilNumerator = c.numerator;
+        float  resultDenominator = c.denominator;
+        while (isInteger(resuilNumerator) || isInteger(resultDenominator)) {
             resuilNumerator *= 10;
             resultDenominator *= 10;
         }
-        float gcd = GCD(Math.abs(numerator), Math.abs(denominator));
+
+        int gcd = GCD((int) Math.abs(resultDenominator), (int) Math.abs(resultDenominator));
+
         resultDenominator = resultDenominator / gcd;
         resuilNumerator = resuilNumerator / gcd;
-        return new Fraction(resuilNumerator, resultDenominator);
+
+        Fraction resuilFaction = new Fraction(resuilNumerator, resultDenominator);
+        return resuilFaction;
     }
 
-    private boolean isInteger(float number) {
+    private static boolean isInteger(float number) {
         return (number == (int) number);
     }
 
-    private float GCD(float a, float b) {
+    private int GCD(int a, int b) {
         if (b == 0) {
             return a;
         }
