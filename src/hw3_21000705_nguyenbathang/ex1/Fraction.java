@@ -22,49 +22,52 @@ public class Fraction {
         float resuilNumerator = (this.numerator * c.getDenominator()) - (c.getNumerator() * this.denominator);
         float resuilDenominator = this.denominator * c.getDenominator();
 
-        return new Fraction(resuilNumerator, resuilDenominator);
+        Fraction resuilFraction =  new Fraction(resuilNumerator, resuilDenominator);
+
+        return normalize(resuilFraction);
     }
 
     public Fraction multi(Fraction c) {
         float resuilNumerator = this.numerator * c.getNumerator();
         float resuilDenimiator = this.denominator * c.getDenominator();
 
-        return new Fraction(resuilNumerator, resuilDenimiator);
+        Fraction resuilFraction =  new Fraction(resuilNumerator, resuilDenimiator);
+
+        return normalize(resuilFraction);
     }
 
     public Fraction divi(Fraction c) {
         float resuilNumerator = this.numerator * c.getDenominator();
         float resuilDenimiator = this.denominator * c.getNumerator();
 
-        return new Fraction(resuilNumerator, resuilDenimiator);
+        Fraction resuilFraction =  new Fraction(resuilNumerator, resuilDenimiator);
+
+        return normalize(resuilFraction);
     }
 
     public Fraction normalize(Fraction c) {
-        float resuilNumerator = c.numerator;
-        float  resultDenominator = c.denominator;
-        while (isInteger(resuilNumerator) || isInteger(resultDenominator)) {
-            resuilNumerator *= 10;
-            resultDenominator *= 10;
+        float tempNumerator = c.numerator;
+        float tempDenominator = c.denominator;
+        while (!isInteger(tempNumerator) || !isInteger(tempDenominator)) {
+            tempNumerator *= 10;
+            tempDenominator *= 10;
         }
+        int gcd = gcd((int) tempNumerator, (int) tempDenominator);
 
-        int gcd = GCD((int) Math.abs(resultDenominator), (int) Math.abs(resultDenominator));
-
-        resultDenominator = resultDenominator / gcd;
-        resuilNumerator = resuilNumerator / gcd;
-
-        Fraction resuilFaction = new Fraction(resuilNumerator, resultDenominator);
-        return resuilFaction;
+        int numeratorNormalize = (int) tempNumerator / gcd;
+        int denominatorNormalize = (int) tempDenominator / gcd;
+        return new Fraction(numeratorNormalize, denominatorNormalize);
     }
 
     private static boolean isInteger(float number) {
-        return (number == (int) number);
+        return number % 1 == 0;
     }
 
-    private int GCD(int a, int b) {
-        if (b == 0) {
+    private int gcd(int a, int b) {
+        if(b == 0){
             return a;
         }
-        return GCD(b, a % b);
+        return gcd(b, a%b);
     }
 
     public float getNumerator() {
@@ -77,6 +80,20 @@ public class Fraction {
 
     @Override
     public String toString() {
-        return this.numerator + " / " + this.denominator;
+        StringBuffer sb = new StringBuffer();
+
+        int tempNumerator = (int) numerator;
+        int tempDenominator = (int) denominator;
+
+        if (tempDenominator< 0) {
+            if (numerator > 0) {
+                sb.append(-tempNumerator + "/" + -tempDenominator);
+            }
+        } else if (tempDenominator == 0) {
+            sb.append(0);
+        } else {
+            sb.append(tempNumerator + "/" + tempDenominator);
+        }
+        return sb.toString();
     }
 }
