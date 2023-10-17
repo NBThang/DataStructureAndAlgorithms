@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.Stack;
 
 public class TestStackArray {
-    public static void main(String[] args) throws IllegalAccessException {
+    public static void main(String[] args) {
         BuildStackUsingArray<Integer> myStack = new BuildStackUsingArray<>();
         myStack.push(10);
         myStack.push(20);

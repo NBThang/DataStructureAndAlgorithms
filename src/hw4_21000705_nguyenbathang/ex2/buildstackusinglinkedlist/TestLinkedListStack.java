@@ -1,6 +1,5 @@
 package hw4_21000705_nguyenbathang.ex2.buildstackusinglinkedlist;
 
-import hw4_21000705_nguyenbathang.ex2.buildstackusingarray.BuildStackUsingArray;
 
 import java.util.Iterator;
 

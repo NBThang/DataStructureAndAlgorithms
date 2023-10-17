@@ -19,9 +19,9 @@ public class ArrayQueue <E> implements QueueInterface<E> {
         queue = (E[]) new Object[default_size];
     }
     @Override
-    public void enqueue(E element) throws IllegalAccessException {
+    public void enqueue(E element) {
         if (count == n) {
-            throw new IllegalAccessException("Queue full!");
+            throw new IllegalStateException("Queue full!");
         }
         int idx = (top + count) % n;
         queue[idx] = element;
@@ -29,9 +29,9 @@ public class ArrayQueue <E> implements QueueInterface<E> {
     }
 
     @Override
-    public E dequeue() throws IllegalAccessException {
+    public E dequeue() {
         if (isEmpty()) {
-            throw new IllegalAccessException("Queue null!");
+            throw new IllegalStateException("Queue null!");
         }
         E element = queue[top];
         queue[top] = null;

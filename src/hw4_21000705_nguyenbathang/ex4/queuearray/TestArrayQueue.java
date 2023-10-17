@@ -1,7 +1,7 @@
 package hw4_21000705_nguyenbathang.ex4.queuearray;
 
 public class TestArrayQueue {
-    public static void main(String[] args) throws IllegalAccessException {
+    public static void main(String[] args){
         ArrayQueue<Integer> myQueue = new ArrayQueue<>();
 
         System.out.println("Is Queue empty?: " + myQueue.isEmpty()); // true

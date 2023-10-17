@@ -19,8 +19,7 @@ public class LinkedListStack<E> implements StackInterface<E> {
     @Override
     public E pop() {
         if (isEmpty()) {
-            System.out.println("Stack is null");
-            return null;
+            throw new IllegalStateException("Stack is null");
         }
         E element = stack.element;
         stack = stack.next;
@@ -35,8 +34,7 @@ public class LinkedListStack<E> implements StackInterface<E> {
     @Override
     public E top() {
         if (isEmpty()) {
-            System.out.println("Stack is null");
-            return null;
+            throw new IllegalStateException("Stack is null");
         }
         return stack.element;
     }
