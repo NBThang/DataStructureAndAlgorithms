@@ -1,0 +1,17 @@
+input: nguyenbathang
+
+i = 0: stack = ''
+i = 1: stack = ''
+i = 2: stack = 'u'
+i = 3: stack = ''
+i = 4: stack = 'e'
+i = 5: stack = 'e'
+i = 6: stack = 'e'
+i = 7: stack = 'e'
+i = 8: stack = 'e' 't'
+i = 9: stack = 'e'
+i = 10: stack = 'e' 'a'
+i = 11: stack = 'e' 'a'
+i = 12: stack = 'e' 'a'
+
+output: 'e' 'a'
