@@ -1,0 +1,12 @@
+bài làm thực hiện combo 1 và làm những bài làm thêm sau: luyện tập 1 câu 62 và 63, luyện tập 2, luyện tập 12, luyện tập 21
+
+thuật toán in biểu thức dạng - trung tố thì dùng thuật toán duyệt cây inorder
+			     - hậu tố thì dụng thuật toán duyệt cây postorder
+			     - tiền tố thì dùng thuật toán duyệt cây preorder
+để tính giá trị biểu thức thì chuyển cây về biểu thức dạng hậu tố sau đó dùng vòng lặp. nếu là số thì push vào stack khi gặp dấu biểu thức thì pop giá trị trong stack ra và thực hiện phép toán vừa gặp đến khi duyệt hết biểu thức thì giá trị trong stack là giá trị của biểu thức.
+
+
+để đếm là trên cây nhị phân ta dùng đệ quy. hàm trả về 0 khi node truyền vào là null, 1 khi node trái và node phải đồng thời null. khởi tạo biến đếm bên là trái của node là hàm đó truyền vào node trái, biến đếm lá phải của node là hàm đó truyền vào node phải. sau đó return biến đếm trái + phải
+
+để tính chiều cao ta dùng đệ quy. hàm sẽ trả về max của chiều cao bên trái và chiều cao bên phải vs chiều cao bên trái or phải sẽ là đệ quy vào hàm đó với biến truyền vào là node con trái or phải. đk dừng sẽ là node truyền vào là null và sẽ return về 0.
+

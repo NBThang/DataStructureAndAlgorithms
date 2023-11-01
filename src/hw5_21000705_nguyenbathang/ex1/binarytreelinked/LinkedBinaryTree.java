@@ -2,13 +2,13 @@ package hw5_21000705_nguyenbathang.ex1.binarytreelinked;
 
 public class LinkedBinaryTree<E, T> implements BinaryTreeInterface<T> {
 
-    protected static class Node<E> {
+    public static class Node<E> {
         private E element; // an element stored at this node
         private Node<E> parent; // a reference to the parent node (if any)
         private Node<E> left; // a reference to the left child
         private Node<E> right; // a reference to the right child
 
-        // Constructs a node with the given element and neighbors .
+        // Constructs a node with the given element and neighbors.
         public Node(E e, Node<E> above, Node<E> leftChild, Node<E> rightChild) {
             // Todo
             element = e;
@@ -19,6 +19,14 @@ public class LinkedBinaryTree<E, T> implements BinaryTreeInterface<T> {
 
         public E getElement() {
             return this.element;
+        }
+
+        public Node<E> getLeft() {
+            return this.left;
+        }
+
+        public  Node getRight() {
+            return this.right;
         }
 
     }
