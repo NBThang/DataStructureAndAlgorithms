@@ -25,8 +25,8 @@ public class SortedArrayPriorityQueue <K extends  Comparable<K>, E> implements P
     }
 
     private ArrEntry<K, E> [] array;
-    private int n;
-    private int defaultsize = 1000;
+    int n;
+    int defaultsize = 1000;
 
     public SortedArrayPriorityQueue() {
         array = new ArrEntry[defaultsize];
