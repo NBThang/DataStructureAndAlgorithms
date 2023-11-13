@@ -1,9 +1,7 @@
 package hw6_21000705_nguyenbathang.ex3.sortsalgorithm;
 
-import hw6_21000705_nguyenbathang.ex1.interface_ex1.Entry;
 import hw6_21000705_nguyenbathang.ex2.minheappriorityqueue.MinHeapPriorityQueue;
 
-import java.security.Key;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -187,5 +185,16 @@ public class SortAlgorithm<T extends Comparable<T>> {
             excutionTime =excutionTime + endTime - startTime;
         }
         System.out.println("excution time of merge sort with size = " + array.length + " is " + excutionTime/20 + " nanosecond");
+    }
+
+    public void executionTimeHeapSort(T[] array) {
+        long excutionTime = 0;
+        for (int i = 0; i < 20; i++) {
+            long startTime = System.nanoTime();
+            heapSort(array);
+            long endTime = System.nanoTime();
+            excutionTime = excutionTime + endTime - startTime;
+        }
+        System.out.println("excution time of heap sort with size = " + array.length + " is " + excutionTime/20 + " nanosecond");
     }
 }

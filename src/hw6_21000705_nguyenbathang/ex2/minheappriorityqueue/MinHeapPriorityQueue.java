@@ -39,17 +39,6 @@ public class MinHeapPriorityQueue<K extends Comparable ,E> extends SortedArrayPr
             i = smallest;
         }
     }
-    public void print(){
-        for (int i = 1; i <= n ; i++) {
-            if(i == n){
-                System.out.print(heapPQ[i].getKey() + " : " + heapPQ[i].getValue());
-            }else{
-                System.out.print(heapPQ[i].getKey() + " : " + heapPQ[i].getValue() + " , ");
-            }
-        }
-        System.out.println();
-    }
-
     @Override
     public int size() {
         return n;

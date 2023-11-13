@@ -15,20 +15,17 @@ public class Test {
 
         SortAlgorithm<Integer > sortAlgorithm = new SortAlgorithm<>();
 
-        printArray(array);
+        sortAlgorithm.executionTimeBubleSort(array.clone());
 
-//        sortAlgorithm.executionTimeBubleSort(array.clone());
-//
-//        sortAlgorithm.executionTimeInsertSort(array.clone());
-//
-//        sortAlgorithm.executionTimeSelectionSort(array.clone());
-//
-//        sortAlgorithm.executionTimeQuickSort(array.clone());
-//
-//        sortAlgorithm.executionTimeMergeSort(array.clone());
+        sortAlgorithm.executionTimeInsertSort(array.clone());
 
-        sortAlgorithm.heapSort(array);
-        printArray(array);
+        sortAlgorithm.executionTimeSelectionSort(array.clone());
+
+        sortAlgorithm.executionTimeQuickSort(array.clone());
+
+        sortAlgorithm.executionTimeMergeSort(array.clone());
+
+        sortAlgorithm.executionTimeHeapSort(array.clone());
     }
 
     public static Integer[] creatIntegerArray(int size) {
@@ -47,10 +44,6 @@ public class Test {
             System.out.print(temp + " ");
         }
         System.out.println();
-    }
-
-    public static void paintChart() {
-
     }
 
 }
