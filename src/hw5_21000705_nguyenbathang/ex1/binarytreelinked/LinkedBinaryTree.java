@@ -29,9 +29,24 @@ public class LinkedBinaryTree<E, T> implements BinaryTreeInterface<T> {
             return this.right;
         }
 
+        public void setElement(E element) {
+            this.element = element;
+        }
+
+        public void setParent(Node<E> parent) {
+            this.parent = parent;
+        }
+
+        public void setLeft(Node<E> left) {
+            this.left = left;
+        }
+
+        public void setRight(Node<E> right) {
+            this.right = right;
+        }
     }
 
-    private Node<E> root;
+    private Node<E> noot;
     private int size = 0;
 
     @Override
@@ -39,7 +54,7 @@ public class LinkedBinaryTree<E, T> implements BinaryTreeInterface<T> {
         if (isEmpty()) {
             return null;
         }
-        return (T) root;
+        return (T) noot;
     }
 
     @Override
@@ -116,9 +131,9 @@ public class LinkedBinaryTree<E, T> implements BinaryTreeInterface<T> {
         }
         Node<E> node = new Node<>(element, null, null, null);
         if (isEmpty()) {
-            root = node;
+            noot = node;
             size++;
-            return root;
+            return noot;
         }
         return null;
     }
@@ -149,6 +164,14 @@ public class LinkedBinaryTree<E, T> implements BinaryTreeInterface<T> {
     public void set(Node p, E element) {
         // set element to node p
         p.element = element;
+    }
+
+    public void upSize() {
+        size++;
+    }
+
+    public void downSize() {
+        size--;
     }
 
 }

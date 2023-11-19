@@ -16,8 +16,10 @@ public class SearchElementInArray<T extends Comparable> {
         int left = 0;
         int right = array.length - 1;
 
-        while (left <= right) {
-            int mid = (right - left) / 2;
+        int mid = left + (right - left) / 2;
+
+        while (mid >= 0) {
+            mid = left + (right - left) / 2;
 
             if (array[mid].compareTo(element) == 0) {
                 return true;
@@ -29,6 +31,7 @@ public class SearchElementInArray<T extends Comparable> {
                 right = mid - 1;
             }
         }
+
         return false;
     }
 
@@ -37,9 +40,10 @@ public class SearchElementInArray<T extends Comparable> {
 
         int left = 0;
         int right = array.length - 1;
+        int mid = left + (right - left) / 2;
 
-        while (left <= right) {
-            int mid = (right - left) / 2;
+        while (mid >= 0) {
+            mid = (right - left) / 2;
 
             if (array[mid].compareTo(element) == 0) {
                 return true;
