@@ -42,9 +42,6 @@ public class SimpleLinkedList<T>{
     }
 
     public void set(int i, T data) {
-//        if (i < 0 || i >= n) {
-//            throw new IndexOutOfBoundsException();
-//        }
 
         Node nodeCurrent = top;
         for (int j = 0; j < i; j++) {

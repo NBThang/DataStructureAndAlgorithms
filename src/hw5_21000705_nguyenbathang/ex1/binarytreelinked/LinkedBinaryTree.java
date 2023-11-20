@@ -174,4 +174,7 @@ public class LinkedBinaryTree<E, T> implements BinaryTreeInterface<T> {
         size--;
     }
 
+    public void setRoot(Node<E> root) {
+        this.noot = root;
+    }
 }

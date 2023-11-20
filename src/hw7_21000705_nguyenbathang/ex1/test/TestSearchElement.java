@@ -38,7 +38,12 @@ public class TestSearchElement {
         SearchElementInLinkedStructure<Integer> searchList = new SearchElementInLinkedStructure<>();
 
         System.out.println("exist " + element + "?: " + searchList.linearSearch(myList, element));
-        System.out.println("exist " + element + "?: " + searchList.binarySearchInSortLinkedList(myList, element));
+
+        SimpleLinkedList<Integer> clone = myList;
+        searchList.sortLinkedList(clone);
+        System.out.println("exist " + element + "?: " + searchList.binarySearchInSortLinkedList(clone, element));
+
+        System.out.println("exist " + element + "?: " + searchList.binarySearchInUnSortLinkedList(myList, element));
     }
 
     public static Integer[] creatArrayInteger(int size) {
@@ -57,7 +62,7 @@ public class TestSearchElement {
         Random random = new Random();
 
         for (int i = 0; i < size; i++) {
-            simpleLinkedList.set(i, random.nextInt(size));
+            simpleLinkedList.add(random.nextInt(size));
         }
 
         return simpleLinkedList;
