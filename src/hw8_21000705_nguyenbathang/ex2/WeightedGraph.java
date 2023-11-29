@@ -1,14 +1,16 @@
-package hw8_21000705_nguyenbathang.ex1;
+package hw8_21000705_nguyenbathang.ex2;
+
+import hw8_21000705_nguyenbathang.ex1.Graph;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class UndirectedGraph implements Graph{
+public class WeightedGraph implements Graph {
     private int numVertices;
     private int[][] adjMatrix;
-
-    public UndirectedGraph() {
+    public WeightedGraph() {
         this.numVertices = 0;
+        this.adjMatrix = null;
     }
     @Override
     public int numVertices() {
@@ -34,7 +36,6 @@ public class UndirectedGraph implements Graph{
             }
         }
 
-        countEdges = countEdges/2;
         return countEdges;
     }
 
@@ -72,7 +73,8 @@ public class UndirectedGraph implements Graph{
         } else if (e.getVertex2() == vertex) {
             return e.getVertex1();
         }else {
-            throw new IllegalArgumentException("No is vertex");
+            System.out.println("no is vertex");
+            return -1;
         }
     }
 
@@ -103,9 +105,9 @@ public class UndirectedGraph implements Graph{
         List listOutGoingEges = new ArrayList<Edge>();
 
         List<Edge> list = edges();
-        for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).getVertex1() == vertex1 || list.get(i).getVertex2() == vertex1) {
-                listOutGoingEges.add(list.get(i));
+        for (Edge edge : list) {
+            if (edge.getVertex1() == vertex1 || edge.getVertex2() == vertex1) {
+                listOutGoingEges.add(edge);
             }
         }
         return listOutGoingEges;
@@ -164,7 +166,38 @@ public class UndirectedGraph implements Graph{
         }
 
         adjMatrix[idexStart][idexEnd] = 1;
-        adjMatrix[idexEnd][idexStart] = 1;
+
+        return new Edge(vertexStart, vertexEnd);
+    }
+
+    public Edge insertEdge(int vertexStart, int vertexEnd, int storing) {
+        int idexStart = -1;
+        int idexEnd = -1;
+        for (int i = 1; i <= numVertices; i++) {
+            if (adjMatrix[0][i] == vertexStart) {
+                idexStart = i;
+                break;
+            }
+        }
+
+        for (int j = 1; j <= numVertices; j++) {
+            if (adjMatrix[j][0] == vertexEnd) {
+                idexEnd = j;
+                break;
+            }
+        }
+
+        if (idexStart == -1) {
+            System.out.println("don't exist Vertex " + vertexStart);
+            return null;
+        } else if (idexEnd == -1) {
+            System.out.println("don't exist Vertex " + vertexEnd);
+            return null;
+        }
+
+        if (adjMatrix[idexStart][idexEnd] == 0) {
+            adjMatrix[idexStart][idexEnd] = storing;
+        }
 
         return new Edge(vertexStart, vertexEnd);
     }
@@ -233,7 +266,6 @@ public class UndirectedGraph implements Graph{
         }
 
         adjMatrix[indexStart][indexEnd] = 0;
-        adjMatrix[indexEnd][indexStart] = 0;
     }
 
     @Override
